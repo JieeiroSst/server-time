@@ -12,6 +12,11 @@ io.on('connection', function(socket) {
     socket.on('disconnect', function() {
         console.log(socket.id + 'client discoonect server');
     });
+
+    socket.on('Client-send-data', function(data) {
+        console.log(socket.id + 'send:' + data);
+        io.sockets.emit('server-send-data' + data + '.');
+    });
 });
 
 app.get('/', (w, r) => {

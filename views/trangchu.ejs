@@ -8,12 +8,23 @@
     <script>
         //call server
         var socket = io('http://localhost:9000');
+
+        socket.on('server-send-data', function(data) {
+            $('noidung').append(data + '.');
+        });
     </script>
     <script>
-        $(document).ready(function() {});
+        $(document).ready(function() {
+            $('#MrA').click(function() {
+                socket.emit('Client-send-data', '');
+            });
+        });
     </script>
 </head>
 
-<body></body>
+<body>
+    <p id="noidung"></p>
+    <div id="MrA" click send></div>
+</body>
 
 </html>
