@@ -6,7 +6,6 @@
     <script src="/public/jquery-3.4.1.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
     <script>
-        //call server
         var socket = io('http://localhost:9000');
 
         socket.on('server-send-data', function(data) {
